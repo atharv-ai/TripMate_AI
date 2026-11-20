@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TripMate AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="page-bg"></div>
+
+    <main class="app-container">
+
+        <section class="hero-section">
+
+            <div class="badge">
+                <span class="badge-icon">✈️</span>
+                TripMate AI
+                <span class="badge-divider">/</span>
+                Multi-Agent Travel Planner
+            </div>
+
+            <h1>
+                Your next journey,<br>
+                planned intelligently.
+            </h1>
+
+            <p>
+                Tell us where you want to go. We'll help you explore,
+                organize and plan your journey with AI.
+            </p>
+
+        </section>
+
+        <section class="planner-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Plan your trip</h2>
+                    <p>
+                        Describe your destination, budget and travel preferences.
+                    </p>
+                </div>
+
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    Ready
+                </div>
+
+            </div>
+
+            <div class="input-area">
+
+                <textarea
+                    id="userInput"
+                    placeholder="e.g. Plan a 7-day trip to Japan from India under 2 lakhs, including flights, hotels and sightseeing..."
+                ></textarea>
+
+                <button id="sendBtn" onclick="sendMessage()">
+                    <span id="btnText">Generate itinerary <span class="btn-arrow">↗️</span></span>
+                    <span id="btnLoader" class="loader hidden"></span>
+                </button>
+
+            </div>
+
+            <div class="prompt-label">
+                TRY A SAMPLE
+            </div>
+
+            <div class="quick-prompts">
+
+                <button onclick="setPrompt('Plan a complete 7 days Japan trip from India including flights, hotels and sightseeing under 2 lakhs.')">
+                    <span>🇯🇵</span> Japan
+                </button>
+
+                <button onclick="setPrompt('Plan a 5 days Dubai trip from India with flights, hotels and sightseeing.')">
+                    <span>🇦🇪</span> Dubai
+                </button>
+
+                <button onclick="setPrompt('Plan a 7 days Thailand trip from India with budget hotels and sightseeing.')">
+                    <span>🇹🇭</span> Thailand
+                </button>
+
+                <button onclick="setPrompt('Give me all country flight info.')">
+                    <span>✈️</span> Flight search
+                </button>
+
+            </div>
+
+            <div class="card-footer">
+                <span>Powered by intelligent travel agents</span>
+                <span>Ctrl + Enter to generate</span>
+            </div>
+
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+
+            <div class="result-header">
+
+                <div>
+                    <div class="result-eyebrow">YOUR PERSONALIZED PLAN</div>
+                    <h2>Your AI Travel Plan</h2>
+                    <p id="threadInfo">Thread ID: -</p>
+                </div>
+
+                <div class="result-actions">
+
+                    <button class="copy-btn" onclick="copyResult()">
+                        <span>⧉</span> Copy
+                    </button>
+
+                    <button class="download-btn" onclick="downloadPDF()">
+                        <span>↓</span> Download PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="pdfContent" class="pdf-content">
+
+                <h1 class="pdf-title">AI Travel Plan</h1>
+
+                <div id="resultBox" class="result-box"></div>
+
+            </div>
+
+        </section>
+
+        <section id="errorBox" class="error-box hidden"></section>
+
+    </main>
+
+    <footer>
+        <div class="footer-line"></div>
+        <p>TripMate AI</p>
+        <span>Built with FastAPI, LangGraph, Groq, PostgreSQL, Tavily and AviationStack</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
