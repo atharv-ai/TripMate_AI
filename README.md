@@ -41,7 +41,7 @@ all coordinated through a LangGraph workflow.
 .
 ├── app.py                # FastAPI app entry point
 ├── backend.py            # LangGraph travel workflow
-├── requirements.txt      # Python dependencies
+├── requirments.txt      # Python dependencies
 ├── static/               # Static frontend assets
 ├── templates/            # HTML templates
 └── tools/                # Flight and web search integrations
@@ -75,7 +75,7 @@ DEFAULT_ORIGIN_IATA=DAC
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirments.txt
 ```
 
 ## Running the App
